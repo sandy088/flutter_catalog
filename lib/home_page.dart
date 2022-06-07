@@ -12,7 +12,7 @@ class Homepage extends StatelessWidget {
 
         body: Center(
           child: Container(
-            child: Text("Welcome tom my First Flutter App✅✅"),
+            child: Text("Welcome to my First Flutter App✅✅"),
           ),
         ),
 
