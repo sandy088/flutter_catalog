@@ -1,6 +1,8 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_catalog/pages/login_page.dart';
+
 
 class myDrawer extends StatelessWidget {
   const myDrawer({Key? key}) : super(key: key);
@@ -65,7 +67,26 @@ class myDrawer extends StatelessWidget {
                 color: Colors.white,
                 ),
                 ),
-            )
+            ),
+
+            ListTile(
+              onTap: (){
+                Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LoginPage()),
+                );
+              },
+              leading: Icon(
+                CupertinoIcons.arrow_2_circlepath_circle_fill,
+                color: Colors.white,
+              ),
+              title: Text("Re-Login",
+                textScaleFactor: 1.2, 
+                style: TextStyle(
+                color: Colors.white,
+                ),
+                ),
+            ),
 
           ],
         ),
