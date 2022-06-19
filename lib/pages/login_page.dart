@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/myRoutes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 
 class LoginPage extends StatefulWidget {
@@ -35,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
   
 
     return Material(
-      color: Colors.white,
+      color: context.theme.canvasColor,
       child: Form(
         key: _formkey ,
         child: Column(

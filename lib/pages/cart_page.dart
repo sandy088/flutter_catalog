@@ -19,10 +19,11 @@ class cartPage extends StatelessWidget {
 );
 
     return Scaffold(
-      backgroundColor: themes.creamColor,
+      backgroundColor: context.theme.canvasColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent, systemOverlayStyle: SystemUiOverlayStyle.dark,
         title: "Cart".text.bold.make(),
+        centerTitle: true,
       ),
     );
   }

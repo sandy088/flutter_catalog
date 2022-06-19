@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter_catalog/Models/catalog.dart';
-import 'package:flutter_catalog/utils/myRoutes.dart';
+import 'package:flutter_catalog/pages/cart_page.dart';
 import 'package:flutter_catalog/widgets/homepage_widgets/catalog_header.dart';
 import 'package:flutter_catalog/widgets/homepage_widgets/catalog_list.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
+import 'package:flutter_catalog/widgets/transitions.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class Homepage extends StatefulWidget {
@@ -50,12 +51,11 @@ class _HomepageState extends State<Homepage> {
     //Dummy List
     // final dummyList= List.generate(20,(index) => CatalogModel.items[0]);
 
-    
-
     return Scaffold(
       
-      backgroundColor: themes.creamColor,
-      floatingActionButton: FloatingActionButton(onPressed: () => Navigator.pushNamed(context, myRoutes.cart_page) ,backgroundColor: themes.darkBluishColor,
+      backgroundColor: context.canvasColor,
+      floatingActionButton: FloatingActionButton(onPressed: () =>Navigator.push(context,
+    EnterExitRoute(exitPage: Homepage() ,enterPage: cartPage())) ,backgroundColor: context.theme.buttonColor,
       child: Icon(CupertinoIcons.cart)
       ),
 
@@ -79,6 +79,11 @@ class _HomepageState extends State<Homepage> {
     );
   }
 }
+
+
+// Page transitions effects
+
+
 
 
 

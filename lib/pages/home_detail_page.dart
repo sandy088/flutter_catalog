@@ -13,15 +13,22 @@ class HomeDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
- 
+    SystemChrome.setSystemUIOverlayStyle(
+   SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      //color set to transperent or set your own color
+      statusBarIconBrightness: Brightness.dark, 
+      //set brightness for icons, like dark background light icons
+   )
+);
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.transparent, systemOverlayStyle: SystemUiOverlayStyle.dark,
       ),
-      backgroundColor: themes.creamColor,
+      backgroundColor: context.theme.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.theme.cardColor,
         child: ButtonBar(
                   alignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -30,7 +37,7 @@ class HomeDetailPage extends StatelessWidget {
                     
                       onPressed: (){}, 
                       style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(themes.darkBluishColor),
+                        backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
                         shape: MaterialStateProperty.all(StadiumBorder())
                        ),
                       child: "Buy".text.make()
@@ -56,12 +63,12 @@ class HomeDetailPage extends StatelessWidget {
                   arcType: VxArcType.CONVEY,
                   edge: VxEdge.TOP,
                   child: Container(
-                  color: Colors.white,
+                  color: context.theme.cardColor,
                   width: context.screenWidth,
 
                   child: Column(
                     children: [
-                     catalog.name.text.lg.color(themes.darkBluishColor).bold.xl4.make(),
+                     catalog.name.text.lg.color(context.theme.buttonColor).bold.xl4.make(),
                      catalog.desc.text.textStyle(context.captionStyle).xl.make(),
 
                      "Duo ipsum ipsum sit aliquyam dolores dolore est dolor. Invidunt sed et dolor amet sit eirmod vero no, et ea takimata sed dolor sed stet lorem kasd. Ipsum sed duo lorem invidunt. Gubergren justo sit rebum rebum sadipscing invidunt. Magna no invidunt stet voluptua dolore gubergren labore. Dolores ut et.".text.textStyle(context.captionStyle)
