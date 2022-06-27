@@ -6,9 +6,9 @@ import 'package:flutter_catalog/Models/catalog.dart';
 import 'package:flutter_catalog/pages/cart_page.dart';
 import 'package:flutter_catalog/widgets/homepage_widgets/catalog_header.dart';
 import 'package:flutter_catalog/widgets/homepage_widgets/catalog_list.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 import 'package:flutter_catalog/widgets/transitions.dart';
 import 'package:velocity_x/velocity_x.dart';
+import 'package:http/http.dart' as http;
 
 class Homepage extends StatefulWidget {
   const Homepage({ Key? key }) : super(key: key);
@@ -22,6 +22,7 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
 
+  final url = "https://jsonkeeper.com/b/GS12";
   
   void initState(){
     super.initState();
@@ -29,8 +30,11 @@ class _HomepageState extends State<Homepage> {
   }
 
   loadData() async {
-    
-    final catalogJson= await rootBundle.loadString("lib/assets/files/catalog.json");
+    //Load Items with local JsonFile
+    // final catalogJson= await rootBundle.loadString("lib/assets/files/catalog.json");
+
+    final response = await http.get(Uri.parse(url));
+    final catalogJson = response.body;
     final decodedData= jsonDecode(catalogJson);
     var productData= decodedData["products"];
     

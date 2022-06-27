@@ -55,15 +55,7 @@ class CatalogItem extends StatelessWidget {
                 alignment: MainAxisAlignment.spaceBetween,
                 children: [
                   "\$${catalog.price}".text.bold.make(),
-                  ElevatedButton(
-                  
-                    onPressed: (){}, 
-                    style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
-                      shape: MaterialStateProperty.all(StadiumBorder())
-                     ),
-                    child: "Buy".text.make()
-                    )
+                  _AddToCart()
                 ],
               ).pOnly(right: 8.0)
             ],
@@ -71,5 +63,37 @@ class CatalogItem extends StatelessWidget {
         ],
       )
     ).color(context.cardColor).roundedLg.square(150).make().py16();
+  }
+}
+
+class _AddToCart extends StatefulWidget {
+  const _AddToCart({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<_AddToCart> createState() => _AddToCartState();
+}
+
+class _AddToCartState extends State<_AddToCart> {
+
+  bool isAdded= false;
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+    
+      onPressed: (){
+        isAdded= isAdded.toggle();
+        setState(() {
+          
+        });
+
+      }, 
+      style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all(context.theme.buttonColor),
+        shape: MaterialStateProperty.all(StadiumBorder())
+       ),
+      child: isAdded? Icon(Icons.done) :"Add to Cart".text.size(6).make()
+      );
   }
 }
